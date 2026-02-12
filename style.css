@@ -10,9 +10,9 @@ body {
   background: rgb(29, 30, 35);
   color: #FFF;
   
-  transition: all 1s ease-in;
+  transition: all 1s ease-in-out;
 
-  &.open{
+  &.close{
     background: #2C85C4;
   }
 }
@@ -21,62 +21,90 @@ h1, h2, h3, h4, h5, h6, p{
   margin: 0 0 10px 0;
 }
 
-div.card-container {
+.card-container {
   position: relative;
   height: 400px;
   width: 400px;
   margin: 0 auto; 
-  cursor: pointer;
   background: rgb(11, 154, 170);
   border-radius: 10px;
 
-  div.card-face {
+  .card-face {
     position: absolute;
     height: 100%;
     width: 100%;
     background: yellowgreen;
-    transform-style: preserve-3d;
     border-radius: 10px;
-    transition: all 1s ease-in;
+
+    cursor: pointer;
+
+    transition: all 1s ease-in-out;
+    transform-style: preserve-3d;
     transform-origin: 0% 50%;
 
-    /* 
-      When card is open 
-      (when clicked)
-    */
-
+    /* Default transform */
     &.card-front {
-      position: absolute;
-      height: 100%;
-      width: 100%;
       backface-visibility: hidden;
       background-color: rgb(187, 136, 40);
-      transform: rotateY(120deg) skewY(-10deg);
+      transform: none;
       z-index: 1;
     }
-
     &.card-back {
-      position: absolute;
-      height: 100%;
-      width: 100%;
       /* backface-visibility: hidden; */
       background-color: blue;
-      transform: rotateY(120deg) skewY(-10deg);
+      transform: none;
     }
   }
 
-  /* 
-    When card is closed
-    (Default)
-   */
-
+  /* When clicked */
   &.close {
-    div.card-face.card-front {
-      transform: none;
+    .card-face.card-front {
+      transform: rotateY(135deg) skewY(-10deg);
     }
+    .card-face.card-back {
+      transform: rotateY(135deg) skewY(-10deg);
+    }
+  }
+}
 
-    div.card-face.card-back {
-      transform: none;
+.card-no-move {
+
+  .ask {
+    /* background-color: aqua; */
+  }
+
+  .imgContainer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 16px;
+
+    &.yes {
+
     }
+    &.no {
+
+    }
+  }
+
+  .img-popup {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    width: 150px;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+    z-index: 10;
+  }
+  
+  .imgContainer:hover .img-popup {
+    display: block;
   }
 }
