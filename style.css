@@ -50,6 +50,7 @@ body {
   background: var(--color-4-amaranth-pink);
   color: #fff;
   border-radius: 10px;
+  margin: 3rem;
 
   .card-face {
     position: absolute;
@@ -123,7 +124,8 @@ body {
     border: none;
     border-radius: 1rem;
     cursor: pointer;
-    font-size: 3rem;
+    font-size: 2rem;
+    font-family: 'Raleway';
 
     &.yes {
 
