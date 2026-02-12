@@ -13,10 +13,10 @@ const imageListSad = [
 ];
 
 jQuery(document).ready(function() {
-  
+
   $('div.card-face').on('click', function() {
-    $('div.card-container').toggleClass('close');
-    $('body').toggleClass('close');
+    $('div.card-container').toggleClass('open');
+    $('body').toggleClass('open');
   })
 
   $('#imgContainer-yes').hover(

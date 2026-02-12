@@ -2,38 +2,60 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  --color-1-dark-spring-green: #337357;
+  --color-2-asparagus: #6d9f71;
+  --color-3-mimi-pink: #f4aabf;
+  --color-4-amaranth-pink: #ea9ab2;
+  --color-5-rose-pompadour: #e27396;
+  --color-6: #e35682;
+  --color-7: #cd6286;
+  --color-8: #6b1455;
 }
 
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  background: rgb(29, 30, 35);
-  color: #FFF;
+  background: var(--color-3-mimi-pink);
+  color: var(--color-8);
+  min-height: 100vh;
   
   transition: all 1s ease-in-out;
 
-  &.close{
-    background: #2C85C4;
+  display: flex;
+  flex-direction: column;
+
+  &.open{
+    background: var(--color-5-rose-pompadour);
   }
 }
 
-h1, h2, h3, h4, h5, h6, p{
-  margin: 0 0 10px 0;
+.header {
+  background-color: #e27396;
+  padding: 3rem;
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  /* background-color: red; */
+  justify-content: center;
+  align-items: center;
 }
 
 .card-container {
   position: relative;
   height: 400px;
   width: 400px;
-  margin: 0 auto; 
-  background: rgb(11, 154, 170);
+  background: var(--color-4-amaranth-pink);
+  color: #fff;
   border-radius: 10px;
 
   .card-face {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: yellowgreen;
+    /* background: rgb(180, 46, 115); */
     border-radius: 10px;
 
     cursor: pointer;
@@ -45,19 +67,19 @@ h1, h2, h3, h4, h5, h6, p{
     /* Default transform */
     &.card-front {
       backface-visibility: hidden;
-      background-color: rgb(187, 136, 40);
+      background-color: var(--color-7);
       transform: none;
       z-index: 1;
     }
     &.card-back {
       /* backface-visibility: hidden; */
-      background-color: blue;
+      background-color: var(--color-7);
       transform: none;
     }
   }
 
   /* When clicked */
-  &.close {
+  &.open {
     .card-face.card-front {
       transform: rotateY(135deg) skewY(-10deg);
     }
@@ -69,23 +91,39 @@ h1, h2, h3, h4, h5, h6, p{
 
 .card-no-move {
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  /* background-color: red; */
+
   .ask {
     /* background-color: aqua; */
+    padding: 1rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
   }
 
   .imgContainer {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
   }
 
   .button {
     padding: 0.5rem 1rem;
-    background-color: #007BFF;
+    background-color: var(--color-6);
     color: white;
     border: none;
     border-radius: 1rem;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 3rem;
 
     &.yes {
 
