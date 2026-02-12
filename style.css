@@ -1,0 +1,69 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  background: #915979;
+  color: #FFF;
+  
+  transition: all 1s ease-in;
+
+  &.open{
+    background: #2C85C4;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0 0 10px 0;
+}
+
+div.card-clickable {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  margin: 0 auto; 
+  cursor: pointer;
+  background: palegreen;
+
+  div.movable {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    background: yellowgreen;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    border-radius: 30px;
+    transition: all 1s ease-in;
+
+    &.card-front {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      background-color: blue;
+      z-index: 1;
+    }
+    
+    &.card-back {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      background-color: green;
+    }
+  }
+
+  &.open {
+    div.movable.card-front {
+      transform: rotateY(120deg);
+    }
+
+    /* div.movable.card-back {
+      
+    } */
+  }
+}
