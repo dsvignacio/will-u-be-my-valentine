@@ -7,7 +7,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  background: #915979;
+  background: rgb(29, 30, 35);
   color: #FFF;
   
   transition: all 1s ease-in;
@@ -21,49 +21,62 @@ h1, h2, h3, h4, h5, h6, p{
   margin: 0 0 10px 0;
 }
 
-div.card-clickable {
+div.card-container {
   position: relative;
   height: 400px;
   width: 400px;
   margin: 0 auto; 
   cursor: pointer;
-  background: palegreen;
+  background: rgb(11, 154, 170);
+  border-radius: 10px;
 
-  div.movable {
+  div.card-face {
     position: absolute;
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     background: yellowgreen;
     transform-style: preserve-3d;
-    transform-origin: 0% 50%;
-    border-radius: 30px;
+    border-radius: 10px;
     transition: all 1s ease-in;
+    transform-origin: 0% 50%;
+
+    /* 
+      When card is open 
+      (when clicked)
+    */
 
     &.card-front {
       position: absolute;
       height: 100%;
       width: 100%;
       backface-visibility: hidden;
-      background-color: blue;
+      background-color: rgb(187, 136, 40);
+      transform: rotateY(120deg) skewY(-10deg);
       z-index: 1;
     }
-    
+
     &.card-back {
       position: absolute;
       height: 100%;
       width: 100%;
-      backface-visibility: hidden;
-      background-color: green;
+      /* backface-visibility: hidden; */
+      background-color: blue;
+      transform: rotateY(120deg) skewY(-10deg);
     }
   }
 
-  &.open {
-    div.movable.card-front {
-      transform: rotateY(120deg);
+  /* 
+    When card is closed
+    (Default)
+   */
+
+  &.close {
+    div.card-face.card-front {
+      transform: none;
     }
 
-    /* div.movable.card-back {
-      
-    } */
+    div.card-face.card-back {
+      transform: none;
+    }
   }
 }
