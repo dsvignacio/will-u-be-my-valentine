@@ -114,11 +114,11 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    /* padding: 2rem; */
   }
 
   .button {
-    padding: 0.5rem 1rem;
+    /* padding: 0.5rem 1rem; */
     background-color: var(--color-6);
     color: white;
     border: none;
