@@ -33,6 +33,9 @@ jQuery(document).ready(function() {
     }
   })
 
+  let indexHappy = 0;
+  let indexSad = 0;
+
   function cardOpen() {
     $('#imgContainer-yes').on('click',
       function() {
