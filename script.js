@@ -33,9 +33,6 @@ jQuery(document).ready(function() {
     }
   })
 
-  let indexHappy = 0;
-  let indexSad = 0;
-
   function cardOpen() {
     $('#imgContainer-yes').on('click',
       function() {
@@ -86,36 +83,36 @@ jQuery(document).ready(function() {
 
 function confettiYesCenter() {
   const defaults = {
-  spread: 360,
-  ticks: 100,
-  gravity: 0,
-  decay: 0.94,
-  startVelocity: 30,
-  shapes: ["heart"],
-  colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
-};
+    spread: 360,
+    ticks: 100,
+    gravity: 0,
+    decay: 0.94,
+    startVelocity: 30,
+    shapes: ["heart"],
+    colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
+  };
 
-function shoot() {
-  confetti({
-    ...defaults,
-    particleCount: 50,
-    scalar: 2,
-  });
-  
-  confetti({
-    ...defaults,
-    particleCount: 25,
-    scalar: 3,
-  });
-  
-  confetti({
-    ...defaults,
-    particleCount: 10,
-    scalar: 4,
-  });
-}
+  function shoot() {
+    confetti({
+      ...defaults,
+      particleCount: 50,
+      scalar: 2,
+    });
+    
+    confetti({
+      ...defaults,
+      particleCount: 25,
+      scalar: 3,
+    });
+    
+    confetti({
+      ...defaults,
+      particleCount: 10,
+      scalar: 4,
+    });
+  }
 
-setTimeout(shoot, 0);
-setTimeout(shoot, 300);
-setTimeout(shoot, 600);
+  setTimeout(shoot, 0);
+  setTimeout(shoot, 300);
+  setTimeout(shoot, 600);
 }
