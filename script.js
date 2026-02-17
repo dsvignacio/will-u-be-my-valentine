@@ -14,10 +14,8 @@ const imageListSad = [
 
 jQuery(document).ready(function() {
 
-  const randomIndexHappy = Math.floor(Math.random() * imageListHappy.length);
-  $('#img-popup-happy').attr('src', imageListHappy[randomIndexHappy]);
-  const randomIndexSad = Math.floor(Math.random() * imageListSad.length);
-  $('#img-popup-sad').attr('src', imageListSad[randomIndexSad]);
+  $('#img-popup-happy').attr('src', imageListHappy[0]);
+  $('#img-popup-sad').attr('src', imageListSad[0]);
 
   $('div.card-face').on('click', function() {
     $('div.card-container').toggleClass('open');
@@ -32,12 +30,16 @@ jQuery(document).ready(function() {
     }
   })
 
+  let indexHappy = 0;
+  let indexSad = 0;
+
   function cardOpen() {
     $('#imgContainer-yes').on('click',
       function() {
-        // Happy Dudu
-        const randomIndex = Math.floor(Math.random() * imageListHappy.length);
-        $('#img-popup-happy').attr('src', imageListHappy[randomIndex]);
+        if (indexHappy >= imageListHappy.length) {
+          indexHappy = 0;
+        }
+        $('#img-popup-happy').attr('src', imageListHappy[indexHappy]);
         $('#img-popup-happy').css('display', 'block');
         $('#img-popup-sad').css('display', 'none');
 
@@ -52,8 +54,10 @@ jQuery(document).ready(function() {
     $('#imgContainer-no').on('click',
       function() {
         // Sad Dudu
-        const randomIndex = Math.floor(Math.random() * imageListSad.length);
-        $('#img-popup-sad').attr('src', imageListSad[randomIndex]);
+        if (indexSad >= imageListSad.length) {
+          indexSad = 0;
+        }
+        $('#img-popup-sad').attr('src', imageListSad[indexSad]);
         $('#img-popup-happy').css('display', 'none');
         $('#img-popup-sad').css('display', 'block');
 
